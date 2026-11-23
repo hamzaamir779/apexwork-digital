@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ApexWork – Website Development & SEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;800&family=DM+Sans:wght@400;500;700&display=swap">
+<style>
+:root{--bg:#eaf1f8;--bg2:#ffffff;--ink:#0d1b2e;--mut:#51627a;--blue:#2c57ff;--mint:#18d9a8;--line:#cfdbe9;--glass:rgba(255,255,255,.72);
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1322;--bg2:#121d33;--ink:#e8f0fb;--mut:#93a5c0;--blue:#6f8cff;--mint:#2ef0bd;--line:#23324f;--glass:rgba(18,29,51,.72);color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b1322;--bg2:#121d33;--ink:#e8f0fb;--mut:#93a5c0;--blue:#6f8cff;--mint:#2ef0bd;--line:#23324f;--glass:rgba(18,29,51,.72);color-scheme:dark}
+html{height:100%;scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 76px)}
+*{box-sizing:border-box}
+body{margin:0;min-height:100%;background:var(--bg);color:var(--ink);font:400 17px/1.6 "DM Sans",system-ui,sans-serif;overflow-x:hidden}
+h1,h2,h3{font-family:Sora,system-ui,sans-serif;line-height:1.08;margin:0;letter-spacing:-.03em}
+#gl{position:fixed;inset:0;width:100%;height:100%;z-index:0;pointer-events:none}
+main,header,footer{position:relative;z-index:1}
+a{color:inherit}
+header{position:fixed;top:0;left:0;right:0;z-index:10;padding:calc(env(safe-area-inset-top,0px) + 12px) 5vw 12px;display:flex;align-items:center;justify-content:space-between;background:var(--glass);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.logo{font:800 22px Sora;text-decoration:none;display:flex;gap:8px;align-items:center}
+.logo i{width:22px;height:22px;background:linear-gradient(135deg,var(--blue),var(--mint));clip-path:polygon(50% 0,100% 100%,0 100%)}
+nav{display:flex;gap:26px;align-items:center}
+nav a{text-decoration:none;font-weight:500;color:var(--mut)}nav a:hover{color:var(--ink)}
+.btn{display:inline-block;padding:14px 26px;border-radius:999px;background:var(--blue);color:#fff;font:700 16px "DM Sans";text-decoration:none;border:0;cursor:pointer;transition:transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 28px -10px var(--blue)}
+.btn.ghost{background:transparent;color:var(--ink);border:2px solid var(--ink)}
+nav .btn{padding:10px 20px;color:#fff}
+.sec{padding:110px 5vw;max-width:1240px;margin:auto}
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding-top:120px}
+.hero h1{font-size:clamp(44px,8.4vw,116px);font-weight:800;max-width:11ch}
+.hero h1 span{display:inline-block;opacity:0;transform:rotateX(-90deg) translateY(30px);transform-origin:50% 100%;animation:flip .9s cubic-bezier(.2,.8,.2,1) forwards}
+@keyframes flip{to{opacity:1;transform:none}}
+.hero p{max-width:46ch;color:var(--mut);font-size:19px;margin:26px 0 34px}
+.row{display:flex;gap:14px;flex-wrap:wrap}
+.chips{display:flex;gap:10px;margin-top:46px;flex-wrap:wrap}
+.chips a{font-weight:500;text-decoration:none;cursor:pointer;border:1px solid var(--line);background:var(--glass);padding:8px 16px;border-radius:999px;font-size:15px;transition:background .2s,color .2s,transform .2s}.chips a:hover{background:var(--blue);border-color:var(--blue);color:#fff;transform:translateY(-2px)}
+h2{font-size:clamp(34px,5vw,62px);font-weight:800;max-width:16ch}
+.lead{color:var(--mut);max-width:52ch;margin:16px 0 48px}
+.panel{background:var(--glass);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:28px}
+.svc{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:22px;perspective:1100px}
+.tilt{transform-style:preserve-3d;transition:transform .2s ease-out;will-change:transform}
+.svc .panel{padding:38px}
+.svc h3{font-size:28px;margin:18px 0 10px}
+.svc ul{padding:0;margin:18px 0 0;list-style:none}
+.svc li{padding:8px 0 8px 30px;position:relative;border-top:1px solid var(--line)}
+.svc li:before{content:"";position:absolute;left:0;top:16px;width:14px;height:14px;background:var(--mint);transform:rotate(45deg);border-radius:3px}
+.ico{width:60px;height:60px;border-radius:18px;background:linear-gradient(135deg,var(--blue),var(--mint));display:grid;place-items:center;color:#fff;font:800 22px Sora;transform:translateZ(40px)}
+.work{display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:26px;perspective:1200px}
+.card{padding:16px}
+.card .scr{height:230px;border-radius:18px;overflow:hidden;position:relative;transform:translateZ(30px);border:1px solid var(--line)}
+.card h3{font-size:22px;margin:18px 6px 4px}.card p{margin:0 6px 8px;color:var(--mut);font-size:15px}
+.tag{font:600 13px "DM Sans";color:var(--blue);margin:14px 6px 0;display:block}
+.m1{background:#e9f7f2}.m1 .bar{height:34px;background:#0f766e}.m1 h4{font:800 24px Sora;margin:22px 18px 6px;color:#0b3d38;letter-spacing:-.03em}
+.m1 .blk{display:flex;gap:8px;margin:14px 18px}.m1 .blk i{flex:1;height:70px;border-radius:12px;background:#b6e8d9}
+.m2{background:#1b1630}.m2 .bar{height:34px;background:#2c2150}.m2 h4{font:800 24px Sora;margin:22px 18px 6px;color:#fff;letter-spacing:-.03em}
+.m2 .blk{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:14px 18px}.m2 .blk i{height:80px;border-radius:12px;background:linear-gradient(160deg,#ff7ab6,#7a5cff)}
+.m3{background:#fff7e6}.m3 .bar{height:34px;background:#e0a100}.m3 h4{font:800 24px Sora;margin:22px 18px 6px;color:#3a2a00;letter-spacing:-.03em}
+.m3 .blk{display:flex;gap:8px;margin:14px 18px;align-items:flex-end;height:80px}.m3 .blk i{flex:1;background:#f3c64d;border-radius:8px 8px 0 0}
+.line{height:6px;border-radius:3px;background:currentColor;opacity:.2;margin:0 18px 8px;width:70%}
+.stage{perspective:1700px;height:calc(var(--w,520px)*.7 + 30px);position:relative;cursor:grab;touch-action:pan-y;user-select:none}.stage:active{cursor:grabbing}
+.ring{position:absolute;left:50%;top:10px;width:var(--w,520px);height:calc(var(--w,520px)*.66);margin-left:calc(var(--w,520px)/-2);transform-style:preserve-3d}
+.sl{position:absolute;inset:0;margin:0;font-size:calc(var(--w,520px)/52);backface-visibility:hidden;transform:rotateY(calc(var(--i)*90deg)) translateZ(var(--r,380px))}
+.fr{height:100%;border-radius:1.4em;overflow:hidden;background:var(--bg2);border:1px solid var(--line);box-shadow:0 30px 60px -25px rgba(20,40,90,.45);display:flex;flex-direction:column}
+.tb{display:flex;gap:.5em;align-items:center;padding:.8em 1em;background:var(--glass);border-bottom:1px solid var(--line)}.tb i{width:.9em;height:.9em;border-radius:50%;background:var(--line)}.tb span{margin-left:.8em;font-size:1.15em;color:var(--mut);background:var(--bg);border-radius:2em;padding:.2em 1em;flex:1}
+.pg{flex:1;padding:1.6em 2em;overflow:hidden;position:relative;color:#111}.pg h4{font:800 3.4em/1 Sora;letter-spacing:-.04em;margin:0 0 .35em;max-width:9ch}.pg p{margin:0 0 1em;font-size:1.5em;line-height:1.35;max-width:24ch}
+.nv{display:flex;gap:1.6em;align-items:center;font-size:1.3em;margin-bottom:2em}.nv b{font:800 1.5em Sora;margin-right:auto}
+.pg u,.pg s{text-decoration:none;display:inline-block;padding:.6em 1.2em;border-radius:.6em;font-weight:700;font-size:1.3em;margin-right:.7em}.pg .nv u{padding:.5em 1em;margin:0}
+.tl{display:flex;gap:1em;position:absolute;left:2em;right:2em;bottom:1.6em}.tl i{flex:1;font-style:normal;font-weight:700;font-size:1.3em;line-height:1.3;padding:1.2em .8em;border-radius:1em}.tl b{font:800 1.7em Sora;display:block}
+.p1{background:#eaf7f2;color:#0b3d38}.p1 u{background:#0f766e;color:#fff}.p1 s{border:2px solid #0f766e}.p1 .tl i{background:#bfe9dc}.p1:after{content:"";position:absolute;right:2.5em;top:7em;width:13em;height:13em;border-radius:50%;background:#b6e8d9}
+.p2{background:#1b1630;color:#fff}.p2 u{background:#ff7ab6;color:#1b1630}.p2 .tl i{background:linear-gradient(160deg,#7a5cff,#ff7ab6);color:#fff;padding-top:3em}
+.p3{background:#fff4d6;color:#3a2a00}.p3 u{background:#3a2a00;color:#ffd35c}.p3 .tl i{background:#ffd35c}.p3:after{content:"";position:absolute;right:-3em;top:6em;width:18em;height:11em;background:repeating-linear-gradient(135deg,#ffd35c 0 1.2em,transparent 1.2em 2.4em);border-radius:1em}
+.p4{background:#fff;color:#202124}.sb{border:1px solid #dadce0;border-radius:2em;padding:.7em 1.4em;font-size:1.5em;box-shadow:0 1px 6px rgba(0,0,0,.15);margin-bottom:1.6em}
+.rs{position:relative;margin-bottom:1em}.rs small{font-size:1.2em;color:#4d5156;display:block}.rs a{font:600 1.7em Sora;color:#1a0dab;display:block;letter-spacing:-.02em;margin:.15em 0}.pg .rs p{font-size:1.25em;max-width:none;color:#4d5156;margin:0}
+.rs.top{background:#eef4ff;border:2px solid #2c57ff;border-radius:1em;padding:1em 1.2em}.rs em{position:absolute;right:-.6em;top:-1.3em;background:#18d9a8;color:#06281f;font:800 1.5em Sora;font-style:normal;padding:.2em .7em;border-radius:2em}.rs i{display:block;height:.7em;background:#e8eaed;border-radius:.4em;margin:.5em 0;width:85%}
+.ctl{display:flex;align-items:center;justify-content:center;gap:22px;margin-top:20px}.arr{width:52px;height:52px;border-radius:50%;border:2px solid var(--ink);background:transparent;color:var(--ink);font-size:26px;cursor:pointer;flex:none;transition:background .2s,color .2s}.arr:hover{background:var(--ink);color:var(--bg)}
+.cap{text-align:center;max-width:460px;min-height:110px}.cap h3{font-size:24px}.cap p{color:var(--mut);margin:8px 0 0}
+.dots{display:flex;gap:10px;justify-content:center;margin-bottom:10px}.dots button{width:12px;height:12px;border-radius:50%;border:0;background:var(--line);padding:0;cursor:pointer;transition:width .3s}.dots button.on{background:var(--blue);width:30px;border-radius:8px}
+.seo{margin-top:26px;display:grid;grid-template-columns:1.2fr 1fr;gap:26px;padding:34px;align-items:center}
+.seo svg{width:100%;height:auto}
+.seo h3{font-size:30px}.seo p{color:var(--mut)}
+.stat{display:flex;gap:30px;margin-top:18px;flex-wrap:wrap}.stat b{font:800 34px Sora;color:var(--blue);display:block}.stat span{font-size:14px;color:var(--mut)}
+.prices{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:22px;perspective:1100px;align-items:stretch}
+.pr{padding:34px;display:flex;flex-direction:column}
+.pr.hot{border:2px solid var(--blue)}
+.pr .n{font:800 46px Sora;margin:14px 0 4px;letter-spacing:-.04em}.pr .n small{font:500 15px "DM Sans";color:var(--mut)}
+.pr ul{list-style:none;padding:0;margin:18px 0 26px;flex:1}.pr li{padding:7px 0;border-top:1px solid var(--line)}
+.pr li:before{content:"✓ ";color:var(--mint);font-weight:700}
+.pill{align-self:flex-start;background:var(--mint);color:#06281f;font:700 13px "DM Sans";padding:4px 12px;border-radius:999px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;counter-reset:s;position:relative}
+.step{padding:30px;counter-increment:s}
+.step:before{content:counter(s);display:grid;place-items:center;width:46px;height:46px;border-radius:50%;background:var(--ink);color:var(--bg);font:800 20px Sora;margin-bottom:16px}
+.step h3{font-size:21px;margin-bottom:8px}.step p{margin:0;color:var(--mut);font-size:15px}
+details{border-bottom:1px solid var(--line);padding:20px 4px}summary{cursor:pointer;font:600 20px Sora;list-style:none;display:flex;justify-content:space-between;gap:20px;letter-spacing:-.02em}
+summary::-webkit-details-marker{display:none}summary:after{content:"+";font-size:28px;color:var(--blue);transition:transform .3s}
+details[open] summary:after{transform:rotate(135deg)}details p{color:var(--mut);max-width:62ch;margin:12px 0 0}
+.faq{max-width:860px}
+.go{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;perspective:1100px}.go-c{padding:38px}.go-c h3{font-size:26px;margin:18px 0 8px}.go-c p{color:var(--mut);margin:0 0 24px}#st{min-height:1.6em;margin:4px 0 0;text-align:center;color:var(--blue);font-weight:500}
+.cta{padding:60px;text-align:center;margin-bottom:60px}
+.cta h2{margin:0 auto 14px;max-width:18ch}.cta p{color:var(--mut);max-width:48ch;margin:0 auto 28px}
+form{display:grid;gap:12px;max-width:520px;margin:0 auto;text-align:left}
+input,textarea,select{font:inherit;color:var(--ink);background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:14px 16px;width:100%}
+input:focus,textarea:focus,select:focus,.btn:focus-visible,a:focus-visible,summary:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+footer{padding:36px 5vw calc(env(safe-area-inset-bottom,0px) + 36px);border-top:1px solid var(--line);background:var(--glass);display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--mut);font-size:15px}
+.rv{opacity:0;transform:translateY(40px);transition:opacity .8s,transform .8s}.rv.in{opacity:1;transform:none}
+@media(max-width:820px){nav a:not(.btn){display:none}.seo{grid-template-columns:1fr}.sec{padding:80px 5vw}.cta{padding:36px 22px}}
+@media(prefers-reduced-motion:reduce){.hero h1 span{animation:none;opacity:1;transform:none}.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<canvas id="gl" aria-hidden="true"></canvas>
+<header>
+  <a class="logo" href="#top"><i></i>ApexWork</a>
+  <nav>
+    <a href="#services">Services</a><a href="#work">Our work</a><a href="#start">Get started</a><a href="#how">How it works</a><a href="#faq">Questions</a>
+    <a class="btn" href="#contact">Start a project</a>
+  </nav>
+</header>
+<main id="top">
+<section class="sec hero">
+  <h1 id="h1">Build higher. Get found first.</h1>
+  <p>ApexWork designs fast, clean websites and grows them with SEO, so people searching for your business land on you and not on a competitor.</p>
+  <div class="row"><a class="btn" href="#contact">Get a free quote</a><a class="btn ghost" href="#work">See our work</a></div>
+  <div class="chips"><a href="#web">Website development</a><a href="#seo">SEO</a><a href="#seo">On-page SEO</a><a href="#seo">Off-page SEO</a><a href="#web">Fast loading</a></div>
+</section>
+
+<section class="sec" id="services">
+  <h2 class="rv">Two services. Done properly.</h2>
+  <p class="lead rv">We don’t do everything. We do the two things a small business needs most to win customers online.</p>
+  <div class="svc">
+    <article id="web" class="panel tilt rv"><div class="ico">&lt;/&gt;</div><h3>Website development</h3><p>A custom website built around your business, ready to launch and easy to update.</p>
+      <ul><li>Custom design, no templates</li><li>Mobile, tablet and desktop ready</li><li>Contact forms, maps, WhatsApp buttons</li><li>Speed and security set up</li><li>Hosting and domain help</li></ul><a class="btn" style="margin-top:24px" href="#contact" data-svc="Website development">Start a project</a></article>
+    <article id="seo" class="panel tilt rv"><div class="ico">↗</div><h3>SEO</h3><p>Steady, honest search optimisation that brings in visitors who are ready to buy.</p>
+      <ul><li>Keyword and competitor research</li><li>On-page SEO: titles, content, speed</li><li>Google Business Profile setup</li><li>Off-page SEO: backlinks and guest posts</li><li>Monthly ranking reports</li></ul><a class="btn" style="margin-top:24px" href="#contact" data-svc="SEO">Start a project</a></article>
+  </div>
+</section>
+
+<section class="sec" id="work">
+  <h2 class="rv">Here’s what you’ll get.</h2>
+  <p class="lead rv">These are sample sites for imaginary businesses. Drag, swipe or tap the arrows to look around. Yours will carry your own name, words and photos, and the last slide shows how SEO puts you on Google.</p>
+  <div class="ringbox"><div class="stage" id="stage" tabindex="0" aria-label="Sample websites carousel. Use the left and right arrow keys to browse."><div class="ring" id="ring">
+<figure class="sl" style="--i:0"><div class="fr"><div class="tb"><i></i><i></i><i></i><span>Concept: Bloom Dental</span></div><div class="pg p1"><div class="nv"><b>Bloom</b><span>Services</span><span>Team</span><u>Book now</u></div><h4>Gentle care for the whole family.</h4><p>Check-ups, cleaning and whitening, close to home.</p><div><u>Book appointment</u><s>Opening hours</s></div><div class="tl"><i>Check-ups</i><i>Whitening</i><i>Braces</i></div></div></div></figure>
+<figure class="sl" style="--i:1"><div class="fr"><div class="tb"><i></i><i></i><i></i><span>Concept: Nocturne Wear</span></div><div class="pg p2"><div class="nv"><b>Nocturne</b><span>New in</span><span>Men</span><span>Women</span><u>Cart (2)</u></div><h4>Wear the night.</h4><p>New evening pieces, delivered in 3 days.</p><div><u>Shop now</u></div><div class="tl"><i>Velvet jacket<br>$89</i><i>Silk shirt<br>$54</i><i>Night coat<br>$120</i></div></div></div></figure>
+<figure class="sl" style="--i:2"><div class="fr"><div class="tb"><i></i><i></i><i></i><span>Concept: Northline Cargo</span></div><div class="pg p3"><div class="nv"><b>Northline</b><span>Services</span><span>Tracking</span><u>Get a quote</u></div><h4>Freight, on time.</h4><p>Road cargo across 120 cities, tracked live.</p><div><u>Track a parcel</u></div><div class="tl"><i><b>48h</b>average delivery</i><i><b>120+</b>cities covered</i><i><b>99%</b>on-time rate</i></div></div></div></figure>
+<figure class="sl" style="--i:3"><div class="fr"><div class="tb"><i></i><i></i><i></i><span>Concept: Google search results</span></div><div class="pg p4"><div class="sb">dentist in gujranwala</div><div class="rs top"><em>#1</em><small>bloomdental.pk</small><a>Bloom Dental – Book a dentist online</a><p>Family dental care, whitening and braces. ★★★★★ 4.9 · Open today</p></div><div class="rs"><small>another-clinic.com</small><i></i><i style="width:60%"></i></div><div class="rs"><small>directory-site.com</small><i></i><i style="width:70%"></i></div></div></div></figure>
+</div></div>
+<div class="ctl"><button class="arr" id="pv" aria-label="Previous sample">‹</button><div class="cap" aria-live="polite"><h3 id="ct"></h3><p id="cd"></p></div><button class="arr" id="nx" aria-label="Next sample">›</button></div><div class="dots" id="dots"></div>
+    
+    
+    
+  </div>
+  <div class="panel seo rv">
+    <div><h3>What SEO growth looks like</h3><p>Example: monthly search visitors for a concept client over six months of work.</p>
+      <div class="stat"><div><b>+240%</b><span>organic visits</span></div><div><b>12</b><span>keywords on page 1</span></div><div><b>1.4s</b><span>page load</span></div></div></div>
+    <svg viewBox="0 0 400 200" role="img" aria-label="Growth chart rising over six months"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#2c57ff" stop-opacity=".35"/><stop offset="1" stop-color="#2c57ff" stop-opacity="0"/></linearGradient></defs>
+      <path d="M10 170 L90 150 L170 125 L250 90 L330 55 L390 22 L390 190 L10 190Z" fill="url(#g)"/><path id="ln" d="M10 170 L90 150 L170 125 L250 90 L330 55 L390 22" fill="none" stroke="#18d9a8" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" pathLength="1" stroke-dasharray="1" stroke-dashoffset="1"/>
+      <g fill="#2c57ff"><circle cx="10" cy="170" r="5"/><circle cx="90" cy="150" r="5"/><circle cx="170" cy="125" r="5"/><circle cx="250" cy="90" r="5"/><circle cx="330" cy="55" r="5"/><circle cx="390" cy="22" r="6"/></g></svg>
+  </div>
+</section>
+
+<section class="sec" id="start">
+  <h2 class="rv">Ready to build?</h2>
+  <p class="lead rv">Tell us about your project and we send you a free quote and a draft plan. Every project is different, so we price each one after we hear what you need.</p>
+  <div class="go"><article class="panel go-c tilt rv"><div class="ico">&lt;/&gt;</div><h3>Build my website</h3><p>Share your business and we start designing your site, with a free draft first.</p><a class="btn" href="#contact" data-svc="Website development">Start a project</a></article><article class="panel go-c tilt rv"><div class="ico">↗</div><h3>Grow with SEO</h3><p>We look at your site and your competitors, then bring you more search visitors.</p><a class="btn" href="#contact" data-svc="SEO">Start a project</a></article>
+    
+    
+    
+  </div>
+</section>
+
+<section class="sec" id="how">
+  <h2 class="rv">How it works</h2>
+  <p class="lead rv">Four steps from first message to a live website.</p>
+  <div class="steps">
+    <div class="panel step rv"><h3>Tell us about you</h3><p>Share your business, your customers and sites you like.</p></div>
+    <div class="panel step rv"><h3>See a free draft</h3><p>We design your homepage first, so you see it before you decide.</p></div>
+    <div class="panel step rv"><h3>We build it</h3><p>Every page is built, tested on phones and connected to your domain.</p></div>
+    <div class="panel step rv"><h3>Launch and grow</h3><p>Your site goes live and SEO starts bringing visitors in.</p></div>
+  </div>
+</section>
+
+<section class="sec" id="faq">
+  <h2 class="rv">Questions</h2>
+  <div class="faq" style="margin-top:36px">
+    <details><summary>How much will it cost?</summary><p>Every project is different, so we send a free quote after you tell us what you need. Press Start a project and we reply within a day.</p></details>
+    <details><summary>How long does a website take?</summary><p>A simple site usually takes 5 to 7 days. A bigger site takes 2 to 3 weeks, depending on how quickly you send content.</p></details>
+    <details><summary>Do I need any technical skills?</summary><p>No. We handle design, building, hosting setup and launch. You just share your business details and photos.</p></details>
+    <details><summary>How long until SEO shows results?</summary><p>Most sites start moving in 2 to 3 months. Competitive keywords can take longer, and we explain this before we start.</p></details>
+    <details><summary>Can I edit the website later?</summary><p>Yes. We can set it up so you can change text and images yourself, or you can message us for updates.</p></details>
+    <details><summary>What do I need to start?</summary><p>Your business name, a short description, your logo if you have one, and any photos. We help with the rest.</p></details>
+  </div>
+</section>
+
+<section class="sec" id="contact">
+  <div class="panel cta rv">
+    <h2>Start your project</h2>
+    <p>Tell us what you need. We reply with a free quote and a draft plan, usually within one day.</p>
+    <form id="f" novalidate>
+      <input name="n" placeholder="Your name" required aria-label="Your name" autocomplete="name">
+      <input name="e" type="email" placeholder="Your email" required aria-label="Your email" autocomplete="email">
+      <select name="s" aria-label="Service"><option>Website development</option><option>SEO</option><option>Both services</option></select>
+      <textarea name="m" rows="4" placeholder="Tell us about your business" required aria-label="Message"></textarea>
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;opacity:0;height:0;width:0;padding:0;border:0">
+      <button class="btn" type="submit">Send message</button>
+      <p id="st" role="status"></p>
+    </form>
+    <p style="margin-top:22px">Or email us: <a href="mailto:contact.apexwork@gmail.com"><b>contact.apexwork@gmail.com</b></a></p>
+  </div>
+</section>
+</main>
+<footer><span><b>ApexWork</b> · Website development and SEO</span><a href="mailto:contact.apexwork@gmail.com">contact.apexwork@gmail.com</a><span>© 2026 ApexWork</span></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+  // Hero headline: each word flips in
+  var h=document.getElementById('h1'),w=h.textContent.split(' ');h.setAttribute('aria-label',h.textContent);h.innerHTML='';
+  w.forEach(function(t,i){var s=document.createElement('span');s.textContent=t;s.setAttribute('aria-hidden','true');s.style.animationDelay=(i*0.14+0.2)+'s';h.appendChild(s);h.appendChild(document.createTextNode(' '));});
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Reveal on scroll
+  var io=new IntersectionObserver(function(e){e.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');if(x.target.querySelector&&x.target.querySelector('#ln')){var l=document.getElementById('ln');l.style.transition='stroke-dashoffset 2s ease';l.style.strokeDashoffset=0;}io.unobserve(x.target)}})},{threshold:.15});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+  // 3D tilt cards
+  if(!reduce&&matchMedia('(hover:hover)').matches){document.querySelectorAll('.tilt').forEach(function(c){
+    c.addEventListener('mousemove',function(e){var r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;c.style.transform='rotateY('+(x*14)+'deg) rotateX('+(-y*14)+'deg)'});
+    c.addEventListener('mouseleave',function(){c.style.transform=''});});}
+  // 3D sample carousel
+  (function(){var st=document.getElementById('stage'),ring=document.getElementById('ring'),sl=[].slice.call(ring.children),N=sl.length,ct=document.getElementById('ct'),cd=document.getElementById('cd'),dw=document.getElementById('dots'),
+  info=[['Bloom Dental: clinic website','Services, opening hours and a booking button, clear on a phone in one look.'],['Nocturne Wear: online store','Product galleries, prices and a simple checkout your customers can use in seconds.'],['Northline Cargo: company website','Service pages and trust numbers that turn visitors into enquiries.'],['SEO: Google results','Your business shows up near the top when customers search for what you sell.']],
+  ang=0,tg=0,drag=false,sx=0,sa=0,dots=[];
+  function layout(){var w=Math.min(520,st.clientWidth*.78);st.style.setProperty('--w',w+'px');st.style.setProperty('--r',(w/2/Math.tan(Math.PI/N)+24)+'px');}
+  function cur(){return((Math.round(-tg/90)%N)+N)%N}
+  function cap(){var k=cur();ct.textContent=info[k][0];cd.textContent=info[k][1];dots.forEach(function(d,i){d.className=i===k?'on':''})}
+  function go(d){tg+=d*90;cap()}
+  for(var i=0;i<N;i++)(function(i){var b=document.createElement('button');b.setAttribute('aria-label','Show sample '+(i+1));b.onclick=function(){var d=((i-cur())%N+N)%N;if(d>N/2)d-=N;go(-d)};dw.appendChild(b);dots.push(b)})(i);
+  document.getElementById('pv').onclick=function(){go(1)};document.getElementById('nx').onclick=function(){go(-1)};
+  st.addEventListener('keydown',function(e){if(e.key==='ArrowLeft')go(1);if(e.key==='ArrowRight')go(-1)});
+  st.addEventListener('pointerdown',function(e){drag=true;sx=e.clientX;sa=ang;st.setPointerCapture(e.pointerId)});
+  st.addEventListener('pointermove',function(e){if(drag){ang=sa+(e.clientX-sx)*.35;tg=ang}});
+  function end(){if(!drag)return;drag=false;tg=Math.round(ang/90)*90;cap()}
+  st.addEventListener('pointerup',end);st.addEventListener('pointercancel',end);
+  function loop(){if(!drag)ang+=(tg-ang)*.12;ring.style.transform='translateZ(calc(var(--r) * -1)) rotateY('+ang+'deg)';
+    sl.forEach(function(s,i){var rel=((i*90+ang)%360+540)%360-180;s.style.opacity=(.3+.7*Math.max(0,Math.cos(rel*Math.PI/180))).toFixed(2)});requestAnimationFrame(loop)}
+  layout();addEventListener('resize',layout);cap();loop();})();
+  // Contact form -> mailto
+  document.getElementById('f').addEventListener('submit',function(e){e.preventDefault();var f=e.target;
+    var st=document.getElementById('st'),btn=f.querySelector('button'),name=f.n.value.trim(),email=f.e.value.trim(),msg=f.m.value.trim();
+    function say(t,ok){st.textContent=t;st.style.color=ok?'#12a07a':'#e5484d';}
+    if(f._honey.value)return;
+    if(name.length<2){say('Please enter your name.');f.n.focus();return;}
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email)){say('Please enter a valid email address.');f.e.focus();return;}
+    if(msg.length<10){say('Please write a message of at least 10 characters.');f.m.focus();return;}
+    var d={name:name,email:email,service:f.s.value,message:msg,_subject:'New Customer Inquiry - ApexWork',_template:'table',_captcha:'false'};
+    
+    btn.disabled=true;say('Sending...',true);
+    fetch('https://formsubmit.co/ajax/contact.apexwork@gmail.com',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(d)}).then(function(r){return r.json().then(function(j){if(!r.ok||String(j.success)!=='true')throw 0;})}).then(function(){say('Thank you, '+name+'! Your message was sent. We will reply to '+email+' soon.',true);f.reset();}).catch(function(){say('Sorry, your message could not be sent. Please try again, or email us at contact.apexwork@gmail.com.',false);}).finally(function(){btn.disabled=false});});
+  document.querySelectorAll('[data-svc]').forEach(function(a){a.addEventListener('click',function(){document.getElementById('f').s.value=a.dataset.svc})});
+  // Three.js scene: crystal peak that rebuilds as you scroll
+  try{
+    var cv=document.getElementById('gl'),R=new THREE.WebGLRenderer({canvas:cv,alpha:true,antialias:true});
+    R.setPixelRatio(Math.min(devicePixelRatio,2));
+    var S=new THREE.Scene(),C=new THREE.PerspectiveCamera(45,1,.1,100);C.position.z=9;
+    S.add(new THREE.AmbientLight(0xffffff,.7));var L=new THREE.DirectionalLight(0xffffff,1.1);L.position.set(4,6,6);S.add(L);
+    var dark=function(){return matchMedia('(prefers-color-scheme: dark)').matches&&document.documentElement.dataset.theme!=='light'||document.documentElement.dataset.theme==='dark'};
+    var g=new THREE.Group();S.add(g);
+    var core=new THREE.Mesh(new THREE.OctahedronGeometry(1.7,0),new THREE.MeshStandardMaterial({color:0x2c57ff,metalness:.35,roughness:.18,flatShading:true,transparent:true,opacity:.92}));g.add(core);
+    var wire=new THREE.Mesh(new THREE.OctahedronGeometry(2.25,1),new THREE.MeshBasicMaterial({color:0x18d9a8,wireframe:true,transparent:true,opacity:.55}));g.add(wire);
+    var knot=new THREE.Mesh(new THREE.TorusKnotGeometry(3.2,.06,220,8,2,3),new THREE.MeshBasicMaterial({color:0x2c57ff,transparent:true,opacity:.5}));g.add(knot);
+    var shards=[];for(var i=0;i<26;i++){var m=new THREE.Mesh(new THREE.TetrahedronGeometry(.12+Math.random()*.16),new THREE.MeshStandardMaterial({color:i%2?0x18d9a8:0x2c57ff,flatShading:true}));
+      var a=Math.random()*6.28,r=3.4+Math.random()*2.4;m.userData={a:a,r:r,y:(Math.random()-.5)*5,s:.2+Math.random()*.4};g.add(m);shards.push(m);}
+    var mx=0,my=0,tx=0,sc=0,tsc=0;
+    addEventListener('pointermove',function(e){mx=e.clientX/innerWidth-.5;my=e.clientY/innerHeight-.5});
+    function size(){var w=innerWidth,h=innerHeight;R.setSize(w,h,false);C.aspect=w/h;C.updateProjectionMatrix();}
+    size();addEventListener('resize',size);
+    var t0=0;
+    function tick(t){
+      var max=document.documentElement.scrollHeight-innerHeight;tsc=max>0?scrollY/max:0;sc+=(tsc-sc)*.06;
+      var tm=reduce?0:t*.001;
+      // scroll drives: slide across the screen, grow the knot, spin the shards outward
+      var wide=innerWidth>820;
+      g.position.x=(wide?Math.cos(sc*Math.PI*3)*2.8:0);g.position.y=wide?-sc*1.4+.2:2.2-sc*1.5;
+      g.rotation.y=sc*Math.PI*4+mx*.8;g.rotation.x=my*.6+sc*1.2;
+      core.rotation.z=tm*.3;wire.rotation.y=-tm*.25;knot.rotation.x=tm*.15;
+      var k=1+Math.sin(sc*Math.PI)*.5;knot.scale.setScalar(k);wire.scale.setScalar(1+sc*.5);core.scale.setScalar(1.1-sc*.35+Math.sin(tm)*.03);
+      shards.forEach(function(m){var d=m.userData,an=d.a+tm*d.s+sc*6,rr=d.r+sc*2;m.position.set(Math.cos(an)*rr,d.y+Math.sin(tm+d.a)*.3,Math.sin(an)*rr);m.rotation.x+=.01;m.rotation.y+=.012;});
+      knot.material.opacity=dark()?.8:.5;
+      R.render(S,C);requestAnimationFrame(tick);}
+    requestAnimationFrame(tick);
+  }catch(e){document.getElementById('gl').style.display='none';}
+})();
+</script>
+</body>
+</html>
